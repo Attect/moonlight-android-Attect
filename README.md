@@ -14,6 +14,10 @@ Moonlight还有[PC客户端](https://github.com/moonlight-stream/moonlight-qt)�
 
 以下为修改说明：
 
+### 改动的部分效果演示
+
+[点击此处查看演示视频](https://www.bilibili.com/video/BV1Ys421T784/)
+
 ### 代码侵入
 
 增加的功能实现将主要在library-attect实现，原代码仅有极少处的修改，不修改布局结构，对合并友好。
