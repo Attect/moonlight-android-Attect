@@ -23,7 +23,6 @@ import com.limelight.nvstream.StreamConfiguration;
 import com.limelight.nvstream.http.ComputerDetails;
 import com.limelight.nvstream.http.NvApp;
 import com.limelight.nvstream.http.NvHTTP;
-import com.limelight.nvstream.input.ControllerPacket;
 import com.limelight.nvstream.input.KeyboardPacket;
 import com.limelight.nvstream.input.MouseButtonPacket;
 import com.limelight.nvstream.jni.MoonBridge;
@@ -87,8 +86,12 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
 
+import kotlin.Unit;
+import studio.attect.limelight.GameAttectActivity;
+import studio.attect.limelight.ui.TouchDragListener;
 
-public class Game extends Activity implements SurfaceHolder.Callback,
+
+public class Game extends GameAttectActivity implements SurfaceHolder.Callback,
         OnGenericMotionListener, OnTouchListener, NvConnectionListener, EvdevListener,
         OnSystemUiVisibilityChangeListener, GameGestures, StreamView.InputCallbacks,
         PerfOverlayListener, UsbDriverService.UsbDriverStateListener, View.OnKeyListener {
@@ -533,6 +536,24 @@ public class Game extends Activity implements SurfaceHolder.Callback,
 
         // The connection will be started when the surface gets created
         streamView.getHolder().addCallback(this);
+        afterOnCreate(R.drawable.app_icon, () -> {
+                    toggleKeyboard();
+                    return Unit.INSTANCE;
+                }, (enable) -> {
+                    prefConfig.touchscreenTrackpad = enable;
+                    return Unit.INSTANCE;
+                }, (keyCode, deviceId) -> keyboardTranslator.translate(keyCode, deviceId), (translatedKeyCode, keyDirection, modifierState, flags) -> {
+                    conn.sendKeyboardInput(translatedKeyCode, keyDirection, modifierState, flags);
+                    return Unit.INSTANCE;
+                }, (button) -> {
+                    conn.sendMouseButtonDown(button);
+                    return Unit.INSTANCE;
+                }, (button) -> {
+                    conn.sendMouseButtonUp(button);
+                    return Unit.INSTANCE;
+                }
+        );
+
     }
 
     private void setPreferredOrientationForCurrentDisplay() {
@@ -2016,11 +2037,11 @@ public class Game extends Activity implements SurfaceHolder.Callback,
                 // TODO: Re-enable native touch when have a better solution for handling
                 // cancelled touches from Android gestures and 3 finger taps to activate
                 // the software keyboard.
-                /*if (!prefConfig.touchscreenTrackpad && trySendTouchEvent(view, event)) {
+                if (getNativeTouchEventMode() && !prefConfig.touchscreenTrackpad && trySendTouchEvent(view, event)) {
                     // If this host supports touch events and absolute touch is enabled,
                     // send it directly as a touch event.
                     return true;
-                }*/
+                }
 
                 TouchContext context = getTouchContext(actionIndex);
                 if (context == null) {

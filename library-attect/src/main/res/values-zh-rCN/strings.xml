@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="input_touchscreen_mode">触摸屏模式</string>
+    <string name="input_touchpad_mode">触摸板模式</string>
+    <string name="toggle_soft_keyboard">软键盘</string>
+    <string name="virtual_key_esc">ESC</string>
+    <string name="virtual_key_win">开始菜单</string>
+    <string name="virtual_key_taskmgr">任务管理器</string>
+    <string name="virtual_key_exit_program">关闭程序</string>
+    <string name="virtual_key_screenshot">截图</string>
+    <string name="virtual_key_explorer">资源管理器</string>
+    <string name="virtual_key_system_menu">系统菜单</string>
+    <string name="virtual_key_copy">复制</string>
+    <string name="virtual_key_cut">剪切</string>
+    <string name="virtual_key_paste">粘贴</string>
+    <string name="virtual_key_select_all">全选</string>
+    <string name="virtual_key_desktop">显示桌面</string>
+    <string name="virtual_key_task_view">任务视图</string>
+    <string name="virtual_key_new_desktop">新建桌面</string>
+    <string name="virtual_key_delete_desktop">删除桌面</string>
+    <string name="virtual_key_right_desktop">下个桌面</string>
+    <string name="virtual_key_left_desktop">上个桌面</string>
+    <string name="virtual_mouse_middle_key">鼠标中键</string>
+</resources>
