@@ -1,35 +1,69 @@
 # Moonlight Android
 
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/232a8tadrrn8jv0k/branch/master?svg=true)](https://ci.appveyor.com/project/cgutman/moonlight-android/branch/master)
-[![Translation Status](https://hosted.weblate.org/widgets/moonlight/-/moonlight-android/svg-badge.svg)](https://hosted.weblate.org/projects/moonlight/moonlight-android/)
+[Moonlight for Android](https://moonlight-stream.ORG) 是一个开源客户端，用于连接NVIDIA GameStream或[Sunshine](https://github.com/LizardByte/Sunshine)。
 
-[Moonlight for Android](https://moonlight-stream.org) is an open source client for NVIDIA GameStream and [Sunshine](https://github.com/LizardByte/Sunshine).
+Moonlight for Android可以让您将Windows PC上的完整游戏集合流式传输到Android设备上，无论是在家中还是通过互联网。
 
-Moonlight for Android will allow you to stream your full collection of games from your Windows PC to your Android device,
-whether in your own home or over the internet.
+Moonlight还有[PC客户端](https://github.com/moonlight-stream/moonlight-qt)和[iOS/tvOS客户端](https://github.com/moonlight-stream/moonlight-ios)。
 
-Moonlight also has a [PC client](https://github.com/moonlight-stream/moonlight-qt) and [iOS/tvOS client](https://github.com/moonlight-stream/moonlight-ios).
+## 关于Attect的修改版
 
-You can follow development on our [Discord server](https://moonlight-stream.org/discord) and help translate Moonlight into your language on [Weblate](https://hosted.weblate.org/projects/moonlight/moonlight-android/).
+您看到此处说明则表示您处于Attect修改的Moonlight分支，如果您需要原版信息及支持，请前往[官方仓库](https://github.com/moonlight-stream/moonlight-android)。
 
-## Downloads
-* [Google Play Store](https://play.google.com/store/apps/details?id=com.limelight)
-* [Amazon App Store](https://www.amazon.com/gp/product/B00JK4MFN2)
-* [F-Droid](https://f-droid.org/packages/com.limelight)
-* [APK](https://github.com/moonlight-stream/moonlight-android/releases)
+修改动机来自使用原版时发现一些操作无法进行或及其繁琐。
 
-## Building
-* Install Android Studio and the Android NDK
-* Run ‘git submodule update --init --recursive’ from within moonlight-android/
-* In moonlight-android/, create a file called ‘local.properties’. Add an ‘ndk.dir=’ property to the local.properties file and set it equal to your NDK directory.
-* Build the APK using Android Studio or gradle
+以下为修改说明：
 
-## Authors
+### 代码侵入
 
-* [Cameron Gutman](https://github.com/cgutman)  
-* [Diego Waxemberg](https://github.com/dwaxemberg)  
-* [Aaron Neyer](https://github.com/Aaronneyer)  
+增加的功能实现将主要在library-attect实现，原代码仅有极少处的修改，不修改布局结构，对合并友好。
+
+### 新增部分的语言支持
+
+仅支持：`英语`、`简体中文`
+
+### 悬浮按钮及屏幕覆盖菜单
+
+开始串流后，您将在屏幕左上角看到一个Moonlight图标样式的悬浮按钮，此按钮可以拖动以避免遮挡关键画面。点击按钮后会显示菜单，分别有：
+
+1. ESC：模拟按一次键盘的ESC键，用于在一些游戏呼出菜单。
+2. 开始菜单：便捷的启动其它程序，或者暂时的弹出游戏。
+3. 系统菜单：便捷的打开系统管理相关的程序。
+4. 鼠标中键：用于终端操作，或者部分游戏使用中键交互。
+5. 触摸屏模式：将触摸操作直接传递给PC，不再模拟触摸板或者鼠标位置。
+6. 触摸板模式：模拟触摸板或者鼠标位置。
+7. 软键盘：唤出本机的软键盘。
+8. 关闭程序：即Alt+F4。
+9. 截图：短按进入选取截图（Win11）或将所有显示器画面截图到剪贴板，长按则立即保存当前所有显示器的屏幕截图到文件。
+10. 任务管理器：便捷的打开任务管理器，不怕游戏卡住了。
+11. 资源管理器：随时随地打开学习资料。
+12. 复制、剪切、粘贴、全选：为输入和文件管理提供便捷操作。
+13. 显示桌面：完全弹出游戏。
+14. 任务视图：在多个程序中键快速切换。
+15. 新建桌面：Win7及其它系统不支持，Win10/11新建一个虚拟桌面。
+16. 删除桌面：Win7及其它系统不支持，Win10/11删除当前虚拟桌面，窗口将被左移一个卓main。
+17. 上个桌面：Win7及其它系统不支持，Win10/11则向左切换到上一个虚拟桌面。
+18. 下个桌面：Win7及其它系统不支持，Win10/11则向右切换到下一个虚拟桌面。
+
+### UI修改
+
+1. 修改了游戏列表界面的图片缩放规则，游戏封面将被裁切居中填充，不会再拉伸变形了。
+
+### BUG修改
+
+1. 修正了翻译`KeyEvent.KEYCODE_SYSRQ`错误的问题。
+
+## 构建
+* 安装Android Studio和Android NDK
+* 在moonlight-android/目录下运行`git submodule update --init --recursive`
+* 在moonlight-android/创建名为`local.properties`的文件。在`local.properties`文件中添加一个`ndk.dir=`属性，并将其设置为您的NDK目录。
+* 使用Android Studio或gradle构建APK
+
+## 作者
+* [Cameron Gutman](https://github.com/cgutman)
+* [Diego Waxemberg](https://github.com/dwaxemberg)
+* [Aaron Neyer](https://github.com/Aaronneyer)
 * [Andrew Hennessy](https://github.com/yetanothername)
+* [Attect](https://github.com/Attect)
 
-Moonlight is the work of students at [Case Western](http://case.edu) and was
-started as a project at [MHacks](http://mhacks.org).
+Moonlight是[凯斯西储大学](http://case.edu)的学生的作品，最初作为[MHacks](http://mhacks.org)项目开始。
