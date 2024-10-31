@@ -36,6 +36,7 @@ abstract class GameAttectActivity : Activity() {
     private lateinit var virtualKeyWin: RelativeLayout
     private lateinit var virtualKeySystemMenu: RelativeLayout
     private lateinit var virtualMouseMiddleButton: RelativeLayout
+    private lateinit var onScreenGamePad: RelativeLayout
     private lateinit var touchScreenModeMenu: RelativeLayout
     private lateinit var touchPadModeMenu: RelativeLayout
     private lateinit var toggleSoftKeyboardMenu: RelativeLayout
@@ -56,6 +57,13 @@ abstract class GameAttectActivity : Activity() {
     private lateinit var virtualKeyLeftDesktop: RelativeLayout
     private lateinit var virtualKeyRightDesktop: RelativeLayout
 
+    private lateinit var virtualKeyNvidiaOverflow: RelativeLayout
+    private lateinit var virtualKeyNvidiaScreenshot: RelativeLayout
+    private lateinit var virtualKeyNvidiaPhotoMode: RelativeLayout
+    private lateinit var virtualKeyNvidiaGameFilter: RelativeLayout
+    private lateinit var virtualKeyNvidiaInstantlyRelay: RelativeLayout
+    private lateinit var virtualKeyNvidiaRecord: RelativeLayout
+
     /**
      * 是否正在显示遮罩菜单
      */
@@ -74,6 +82,7 @@ abstract class GameAttectActivity : Activity() {
         sendKeyboardInput: (translatedKeyCode: Short, keyDirection: Byte, modifierState: Byte, flags: Byte) -> Unit,
         mouseButtonDown:(button:Byte)->Unit,
         mouseButtonUp:(button:Byte)->Unit,
+        virtualControllerShow:()->Unit
     ) {
         this.translateKeyCode = translateKeyCode
         this.sendKeyboardInput = sendKeyboardInput
@@ -89,6 +98,7 @@ abstract class GameAttectActivity : Activity() {
         virtualKeyWin = appendView.findViewById(R.id.virtualKeyWin)
         virtualKeySystemMenu = appendView.findViewById(R.id.virtualKeySystemMenu)
         virtualMouseMiddleButton = appendView.findViewById(R.id.virtualMouseMiddleButton)
+        onScreenGamePad = appendView.findViewById(R.id.onScreenGamePad)
         touchScreenModeMenu = appendView.findViewById(R.id.touchScreenModeMenu)
         touchPadModeMenu = appendView.findViewById(R.id.touchPadModeMenu)
         toggleSoftKeyboardMenu = appendView.findViewById(R.id.toggleSoftKeyboardMenu)
@@ -109,10 +119,18 @@ abstract class GameAttectActivity : Activity() {
         virtualKeyLeftDesktop = appendView.findViewById(R.id.virtualKeyLeftDesktop)
         virtualKeyRightDesktop = appendView.findViewById(R.id.virtualKeyRightDesktop)
 
+        virtualKeyNvidiaOverflow = appendView.findViewById(R.id.virtualKeyNvidiaOverflow)
+        virtualKeyNvidiaScreenshot = appendView.findViewById(R.id.virtualKeyNvidiaScreenshot)
+        virtualKeyNvidiaPhotoMode = appendView.findViewById(R.id.virtualKeyNvidiaPhotoMode)
+        virtualKeyNvidiaGameFilter = appendView.findViewById(R.id.virtualKeyNvidiaGameFilter)
+        virtualKeyNvidiaInstantlyRelay = appendView.findViewById(R.id.virtualKeyNvidiaInstantlyRelay)
+        virtualKeyNvidiaRecord = appendView.findViewById(R.id.virtualKeyNvidiaRecord)
+
         overflowLayout.setOnClickListener { toggleOverflowMenu() }
 
         floatButton.setImageResource(appIconResId)
         floatButton.apply {
+            alpha = 0.5f
             setOnTouchListener(TouchDragListener())
             setOnClickListener {
                 Log.i(TAG, "点击悬浮按钮")
@@ -138,6 +156,10 @@ abstract class GameAttectActivity : Activity() {
         }
         virtualMouseMiddleButton.setOnClickListener {
             pressMouseKey(MOUSE_BUTTON_MIDDLE)
+            toggleOverflowMenu()
+        }
+        onScreenGamePad.setOnClickListener{
+            virtualControllerShow()
             toggleOverflowMenu()
         }
         touchScreenModeMenu.setOnClickListener {
@@ -218,7 +240,30 @@ abstract class GameAttectActivity : Activity() {
             toggleOverflowMenu()
         }
 
-
+        virtualKeyNvidiaOverflow.setOnClickListener {
+            pressKeys(KeyEvent.KEYCODE_ALT_LEFT,KeyEvent.KEYCODE_Z)
+            toggleOverflowMenu()
+        }
+        virtualKeyNvidiaScreenshot.setOnClickListener {
+            pressKeys(KeyEvent.KEYCODE_ALT_LEFT,KeyEvent.KEYCODE_F1)
+            toggleOverflowMenu()
+        }
+        virtualKeyNvidiaPhotoMode.setOnClickListener {
+            pressKeys(KeyEvent.KEYCODE_ALT_LEFT,KeyEvent.KEYCODE_F2)
+            toggleOverflowMenu()
+        }
+        virtualKeyNvidiaGameFilter.setOnClickListener {
+            pressKeys(KeyEvent.KEYCODE_ALT_LEFT,KeyEvent.KEYCODE_F3)
+            toggleOverflowMenu()
+        }
+        virtualKeyNvidiaInstantlyRelay.setOnClickListener {
+            pressKeys(KeyEvent.KEYCODE_ALT_LEFT,KeyEvent.KEYCODE_F10)
+            toggleOverflowMenu()
+        }
+        virtualKeyNvidiaRecord.setOnClickListener {
+            pressKeys(KeyEvent.KEYCODE_ALT_LEFT,KeyEvent.KEYCODE_F10)
+            toggleOverflowMenu()
+        }
 
     }
 

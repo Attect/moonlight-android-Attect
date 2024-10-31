@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="on_screen_game_pad">屏幕手柄</string>
     <string name="input_touchscreen_mode">触摸屏模式</string>
     <string name="input_touchpad_mode">触摸板模式</string>
     <string name="toggle_soft_keyboard">软键盘</string>
@@ -21,4 +22,10 @@
     <string name="virtual_key_right_desktop">下个桌面</string>
     <string name="virtual_key_left_desktop">上个桌面</string>
     <string name="virtual_mouse_middle_key">鼠标中键</string>
+    <string name="virtual_key_nvidia_overflow">N卡菜单</string>
+    <string name="virtual_key_nvidia_screenshot">屏幕快照</string>
+    <string name="virtual_key_nvidia_photo_mode">照片模式</string>
+    <string name="virtual_key_nvidia_game_filter">游戏滤镜</string>
+    <string name="virtual_key_nvidia_instantly_relay">即时重放</string>
+    <string name="virtual_key_nvidia_record">录制</string>
 </resources>

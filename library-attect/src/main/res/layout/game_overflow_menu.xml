@@ -85,6 +85,21 @@
                         android:textColor="#FFFFFF" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/onScreenGamePad"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/game_overflow_menu_height"
+                    android:layout_weight="2"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/on_screen_game_pad"
+                        android:textColor="#FFFFFF" />
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/touchScreenModeMenu"
@@ -342,7 +357,92 @@
                     android:textColor="#FFFFFF" />
             </RelativeLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:divider="@drawable/over_flow_menu_horizontal_divider"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+            <RelativeLayout
+                android:id="@+id/virtualKeyNvidiaOverflow"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/game_overflow_menu_height"
+                android:layout_weight="1">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/virtual_key_nvidia_overflow"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/virtualKeyNvidiaScreenshot"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/game_overflow_menu_height"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/virtual_key_nvidia_screenshot"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/virtualKeyNvidiaPhotoMode"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/game_overflow_menu_height"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/virtual_key_nvidia_photo_mode"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/virtualKeyNvidiaGameFilter"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/game_overflow_menu_height"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/virtual_key_nvidia_game_filter"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/virtualKeyNvidiaInstantlyRelay"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/game_overflow_menu_height"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/virtual_key_nvidia_instantly_relay"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/virtualKeyNvidiaRecord"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/game_overflow_menu_height"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/virtual_key_nvidia_record"
+                    android:textColor="#FFFFFF" />
+            </RelativeLayout>
+        </LinearLayout>
         </LinearLayout>
 
     </FrameLayout>

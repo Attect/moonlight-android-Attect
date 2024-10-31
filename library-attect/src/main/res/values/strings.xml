@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="on_screen_game_pad">OnScreenGamePad</string>
     <string name="input_touchscreen_mode">TouchScreen Mode</string>
     <string name="input_touchpad_mode">TouchPad Mode</string>
     <string name="toggle_soft_keyboard">Toggle Keyboard</string>
@@ -21,4 +22,10 @@
     <string name="virtual_key_left_desktop">Left Desktop</string>
     <string name="virtual_key_right_desktop">Right Desktop</string>
     <string name="virtual_mouse_middle_key">Middle Mouse</string>
+    <string name="virtual_key_nvidia_overflow">Nvidia Menu</string>
+    <string name="virtual_key_nvidia_screenshot">Screenshot</string>
+    <string name="virtual_key_nvidia_photo_mode">Photo Mode</string>
+    <string name="virtual_key_nvidia_game_filter">Game Filter</string>
+    <string name="virtual_key_nvidia_instantly_relay">Instant Relay</string>
+    <string name="virtual_key_nvidia_record">Record</string>
 </resources>
