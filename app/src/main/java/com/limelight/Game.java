@@ -606,14 +606,19 @@ public class Game extends GameAttectActivity implements SurfaceHolder.Callback,
         if (virtualController != null) {
             // Refresh layout of OSC for possible new screen size
             virtualController.refreshLayout();
+            if (virtualController.isShow()){
+                virtualController.show();
+            }else{
+                virtualController.hide();
+            }
         }
 
         // Hide on-screen overlays in PiP mode
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             if (isInPictureInPictureMode()) {
                 isHidingOverlays = true;
-
-                if (virtualController != null) {
+                setFloatButtonVisibility(View.GONE);
+                if (virtualController != null && !virtualController.isShow()) {
                     virtualController.hide();
                 }
 
@@ -628,6 +633,7 @@ public class Game extends GameAttectActivity implements SurfaceHolder.Callback,
             } else {
                 isHidingOverlays = false;
 
+                setFloatButtonVisibility(View.VISIBLE);
                 // Restore overlays to previous state when leaving PiP
 
                 if (virtualController != null) {

@@ -329,6 +329,10 @@ abstract class GameAttectActivity : Activity() {
         floatButton.visibility = if (isShowOverflowMenu) View.GONE else View.VISIBLE
     }
 
+    fun setFloatButtonVisibility(visibility:Int){
+        floatButton.visibility = visibility
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         kotlin.runCatching { myCoroutineContext.close() }
