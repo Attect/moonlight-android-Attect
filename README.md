@@ -66,8 +66,8 @@ Moonlight还有[PC客户端](https://github.com/moonlight-stream/moonlight-qt)�
 
 ## 构建
 * 安装Android Studio和Android NDK
-* 在moonlight-android/目录下运行`git submodule update --init --recursive`
-* 在moonlight-android/创建名为`local.properties`的文件。在`local.properties`文件中添加一个`ndk.dir=`属性，并将其设置为您的NDK目录。
+* 在本项目根目录下运行`git submodule update --init --recursive`
+* 在本项目根目录创建名为`local.properties`的文件。在`local.properties`文件中添加一个`ndk.dir=`属性，并将其设置为您的NDK目录。
 * 使用Android Studio或gradle构建APK
 
 ## 作者
